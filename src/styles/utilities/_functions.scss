@@ -3,7 +3,7 @@
 // ==========================================================================
 
 @use "sass:math";
-// @use "./variables" as *;
+@use "./variables" as *;
 
 // 1. Remove unit from value
 // 2. Convert pixel to rem value

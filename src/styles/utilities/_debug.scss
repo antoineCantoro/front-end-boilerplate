@@ -2,6 +2,9 @@
 // Utilities / Debug
 // ==========================================================================
 
+@use './mixins' as *;
+
+
 // Simple Debug to display 
 // ==========================================================================
 
@@ -63,7 +66,7 @@ h6 ~ h3:first-of-type,
 h5 ~ h4:first-of-type,
 h6 ~ h4:first-of-type,
 h6 ~ h5:first-of-type {
-  @include warning("Invalid order");
+    @include warning("Invalid order");
 }
 
 

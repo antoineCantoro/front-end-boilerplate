@@ -6,14 +6,26 @@
 // Utilities
 // ======================================================
 
+@use "./utilities/variables";
+@use "./utilities/animations";
+@use "./utilities/breakpoints";
+@use "./utilities/mixins";
+@use "./utilities/debug";
+@use "./utilities/functions";
+@use "./utilities/helpers";
+@use "./utilities/z-indexes";
 
 // Base
 // ======================================================
 
+@use "./base/base";
+@use "./base/fonts";
+@use "./base/typography";
 
 // Components
 // ======================================================
 
+@use "./objects/grid";
 
 
 // Layout

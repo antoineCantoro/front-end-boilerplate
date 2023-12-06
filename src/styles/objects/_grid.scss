@@ -1,0 +1,72 @@
+// ======================================================
+// Objects / Grid
+// ======================================================
+
+@use "../utilities/" as *;
+
+// Editing Grid Settings
+// ======================================================
+
+:root {
+    --grid-columns:     12;
+    --grid-gutter:      #{rem(12px)};
+    --grid-gutter-half: calc(0.5 * var(--grid-gutter));
+    --grid-margin:      #{rem(24px)};
+    --container-width:  calc(100% - 2 * var(--grid-margin));
+}
+
+
+// Grid
+// ======================================================
+
+.o-grid {
+    display: grid;
+    width: 100%;
+
+    &.--cols {
+        grid-template-columns: repeat(var(--grid-columns), 1fr);
+    }
+
+    &.--gutters {
+        gap: var(--grid-gutter);
+        column-gap: var(--grid-gutter);
+    }
+}
+
+// Item
+// ======================================================
+
+.o-grid_item {
+    grid-column-start: var(--col-start, 1);
+    grid-column-end: var(--col-end, -1);
+}
+
+
+// Generate CSS classes
+// ======================================================
+
+$colsMax: 12 + 1;
+
+@each $breakpoint, $mediaquery in $breakpoints {
+    @for $fromIndex from 1 through $colsMax {
+        @for $toIndex from 1 through $colsMax {
+
+            @if $fromIndex <= $toIndex {
+                @if $breakpoint == 'null' {
+                    .col-#{$fromIndex}\/#{$toIndex} {
+                        --col-start: #{$fromIndex};
+                        --col-end: #{$toIndex};
+                    }
+                } @else {
+                    .col-#{$breakpoint}-#{$fromIndex}\/#{$toIndex} {
+                        @include media('>=#{$breakpoint}') {
+                            --col-start: #{$fromIndex};
+                            --col-end: #{$toIndex};
+             
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
