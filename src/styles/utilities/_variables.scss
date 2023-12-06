@@ -1,0 +1,52 @@
+// ======================================================
+// Utils / Variables
+// ======================================================
+
+// Sass Variables
+// ======================================================
+
+$html-font-size: 16px;
+
+
+// Css Variables
+// ======================================================
+
+:root {
+
+    // Fonts
+    // ======================================================
+
+    // Font Families
+    --primary-font: 'Geist', sans-serif;
+
+    // Font Weights
+    --font-extra-light:     200;
+    --font-light:           300;
+    --font-regular:         400;
+    --font-medium:          500;
+    --font-semibold:        600;
+    --font-bold:            700;
+    --font-extra-bold:      800;
+
+
+    // Colors
+    // ======================================================
+
+    // Global Colors
+    --red-color:           #E1251B;
+    --red-color:           #E1251B;
+
+    // Neutral Colors
+    --light-color:         #FFF;
+    --black-color:         #010101;
+
+    --valid-color:         #00FF00;
+    --error-color:         #FF0000;
+
+
+    // Easings
+    // ======================================================
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

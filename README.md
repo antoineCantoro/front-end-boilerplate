@@ -1,1 +1,1 @@
-# front-end-boilerplate
+# Front-End Boilerplate

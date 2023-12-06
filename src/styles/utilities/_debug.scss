@@ -1,0 +1,125 @@
+// ==========================================================================
+// Utilities / Debug
+// ==========================================================================
+
+// Simple Debug to display 
+// ==========================================================================
+
+.debug * {
+    outline: dashed red 1px;
+}
+
+
+// Warn if elements are empty
+// ==========================================================================
+
+p, pre, a, abbr, strong, em, s, del, ins, small, sub, sup, time, h1, h2, h3, h4, h5, h6, hgroup, ul, ol, li, dl, 
+dd, body, div, section, article, aside, main, nav, header, footer, address, blockquote, figure, figcaption, cite, 
+code, mark, q, button, datalist, fieldset, form, label, legend, meter, optgroup, option, output, progress, select, 
+map, picture, noscript, caption, colgroup, table, tbody, td, tfoot, th, thead, tr, details, dialog, menu, summary, 
+bdi, bdo, data, dfn, kbd, rb, rt, rtc, ruby, samp, var {
+    &:empty:not([data-ignore-css-empty]) {
+        @include warning("Empty element");
+    }
+}
+
+
+// Form
+// ==========================================================================
+
+form:not([action]) {
+    @include error("`action` attribute required");
+}
+  
+input:not([type]) {
+    @include error("`type` attribute required");
+}
+
+textarea:not([rows]),
+textarea:not([cols]) {
+    @include error("`rows` & `cols` attributes required");
+}
+  
+input[type="submit"]:not([value]) {
+    @include error("`value` attribute required");
+}
+  
+
+// Headings order
+// ==========================================================================
+
+h2 ~ h1,
+h3 ~ h1,
+h4 ~ h1,
+h5 ~ h1,
+h6 ~ h1,
+h3 ~ h2:first-of-type,
+h4 ~ h2:first-of-type,
+h5 ~ h2:first-of-type,
+h6 ~ h2:first-of-type,
+h4 ~ h3:first-of-type,
+h5 ~ h3:first-of-type,
+h6 ~ h3:first-of-type,
+h5 ~ h4:first-of-type,
+h6 ~ h4:first-of-type,
+h6 ~ h5:first-of-type {
+  @include warning("Invalid order");
+}
+
+
+// Images
+// ==========================================================================
+
+img:not([alt]) {
+    @include error("`alt` attribute required");
+}
+
+img[alt=""] {
+    @include warning("empty `alt` attribute");
+}
+
+
+// Links
+// ==========================================================================
+
+a:empty:not([title]) {
+    @include warning("`title` attribute required if empty");
+}
+  
+a:not([href]),
+a[href=""],
+a[href="#"],
+a[href^="javascript"] {
+    @include warning("Use <button> instead of link");
+}
+
+
+// Links
+// ==========================================================================
+
+// Ensure any lists only contain `li`s as children.
+ul > *:not(li),
+ol > *:not(li) {
+    @include error("<ul> and <ol> should only contain <li> as children");
+}
+
+// Definition lists should only contain DT and DD elements
+dl > *:not(dt):not(dd) {
+    @include error("<dl> should only contain <dt> and <dl> as children");
+}
+
+
+// Old tags (deprecied)
+// (https://developer.mozilla.org/fr/docs/Web/HTML/Element)
+// ==========================================================================
+
+// old tags that need modernization
+i {
+    @include warning("Use <em> instead");
+}
+b {
+    @include warning("Use <strong> instead");
+}
+u {
+    @include warning("Use css text-decoration: underline; instead");
+}
