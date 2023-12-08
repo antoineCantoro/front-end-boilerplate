@@ -11,6 +11,20 @@ $breakpoints: (
     'xxl-desktop': 1440px,
 );
 
+// DOGSTUDIO
+// $breakpoints: (
+//   xxxs: 0px,
+//   xxs: 320px,
+//   xs: 450px,
+//   s: 600px,
+//   m: 768px,
+//   l: 1024px,
+//   xl: 1340px,
+//   xxl: 1440px,
+//   xxxl: 1920px,
+// );
+
+
 $breakpoint-prefixes: (
     'null': "",
     'phone': "sm",

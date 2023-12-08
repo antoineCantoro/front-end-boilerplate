@@ -13,3 +13,9 @@ $z-header: 10;
 
 $z-above: 1;
 $z-below: -1;
+
+$z-layers: (
+  base: 1,
+  under-base: -1,
+  above-base: 2,
+);
